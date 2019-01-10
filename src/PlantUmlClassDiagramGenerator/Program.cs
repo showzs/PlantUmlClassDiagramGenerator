@@ -1,4 +1,5 @@
 ﻿using Microsoft.CodeAnalysis.CSharp;
+using Microsoft.CodeAnalysis.VisualBasic;
 using Microsoft.CodeAnalysis.Text;
 using System;
 using System.Collections.Generic;
@@ -134,6 +135,7 @@ namespace PlantUmlClassDiagramGenerator
             }
 
             var files = Directory.EnumerateFiles(inputRoot, "*.cs", SearchOption.AllDirectories);
+            var vbfiles = Directory.EnumerateFiles(inputRoot, "*.vb", SearchOption.AllDirectories);
             var includeRefs = new StringBuilder();
             includeRefs.AppendLine("@startuml");
             var error = false;
@@ -164,6 +166,45 @@ namespace PlantUmlClassDiagramGenerator
                         using (var writer = new StreamWriter(filestream))
                         {
                             var gen = new ClassDiagramGenerator(writer, "    ", ignoreAcc);
+                            gen.Generate(root);
+                        }
+                    }
+
+                    includeRefs.AppendLine("!include " + outputFile.Replace(outputRoot, @".\"));
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                    error = true;
+                }
+            }
+            foreach (var inputFile in vbfiles)
+            {
+                if (excludePaths
+                    .Select(p => CombinePath(inputRoot, p))
+                    .Any(p => inputFile.StartsWith(p, StringComparison.InvariantCultureIgnoreCase)))
+                {
+                    Console.WriteLine($"Skipped \"{inputFile}\"...");
+                    continue;
+                }
+                Console.WriteLine($"Processing \"{inputFile}\"...");
+                try
+                {
+                    var outputDir = CombinePath(outputRoot, Path.GetDirectoryName(inputFile).Replace(inputRoot, ""));
+                    Directory.CreateDirectory(outputDir);
+                    var outputFile = CombinePath(outputDir,
+                        Path.GetFileNameWithoutExtension(inputFile) + ".puml");
+
+                    using (var stream = new FileStream(inputFile, FileMode.Open, FileAccess.Read))
+                    {
+                        var tree = VisualBasicSyntaxTree.ParseText(SourceText.From(stream));
+                        var root = tree.GetRoot();
+                        Accessibilities ignoreAcc = GetIgnoreAccessibilities(parameters);
+
+                        using (var filestream = new FileStream(outputFile, FileMode.Create, FileAccess.Write))
+                        using (var writer = new StreamWriter(filestream))
+                        {
+                            var gen = new ClassDiagramGeneratorForVB(writer, "    ", ignoreAcc);
                             gen.Generate(root);
                         }
                     }

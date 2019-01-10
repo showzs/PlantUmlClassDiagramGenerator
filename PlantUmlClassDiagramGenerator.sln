@@ -7,11 +7,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{BA69B69C-C80
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{D0EC41DE-8A29-463D-8915-CB623E02CDA0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlantUmlClassDiagramGenerator.Library", "src\PlantUmlClassDiagramGenerator.Library\PlantUmlClassDiagramGenerator.Library.csproj", "{F6D73496-8660-4A4C-B88A-470990897D7E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlantUmlClassDiagramGenerator.Library", "src\PlantUmlClassDiagramGenerator.Library\PlantUmlClassDiagramGenerator.Library.csproj", "{F6D73496-8660-4A4C-B88A-470990897D7E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlantUmlClassDiagramGenerator", "src\PlantUmlClassDiagramGenerator\PlantUmlClassDiagramGenerator.csproj", "{1575B814-EAF9-4DD2-9AB4-E8ECFDD58B2C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlantUmlClassDiagramGenerator", "src\PlantUmlClassDiagramGenerator\PlantUmlClassDiagramGenerator.csproj", "{1575B814-EAF9-4DD2-9AB4-E8ECFDD58B2C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlantUmlClassDiagramGeneratorTest", "test\PlantUmlClassDiagramGeneratorTest\PlantUmlClassDiagramGeneratorTest.csproj", "{1A5C78F0-D0E1-4146-A035-F13EF8BE542A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlantUmlClassDiagramGeneratorTest", "test\PlantUmlClassDiagramGeneratorTest\PlantUmlClassDiagramGeneratorTest.csproj", "{1A5C78F0-D0E1-4146-A035-F13EF8BE542A}"
+EndProject
+Project("{778DAE3C-4631-46EA-AA77-85C1314464D9}") = "PlantUmlClassDiagramGeneratorForVBTest", "test\PlantUmlClassDiagramGeneratorForVBTest\PlantUmlClassDiagramGeneratorForVBTest.vbproj", "{A11CEEF8-FDF9-4B79-92E3-8C88DB74BF8C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,6 +33,10 @@ Global
 		{1A5C78F0-D0E1-4146-A035-F13EF8BE542A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1A5C78F0-D0E1-4146-A035-F13EF8BE542A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1A5C78F0-D0E1-4146-A035-F13EF8BE542A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A11CEEF8-FDF9-4B79-92E3-8C88DB74BF8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A11CEEF8-FDF9-4B79-92E3-8C88DB74BF8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A11CEEF8-FDF9-4B79-92E3-8C88DB74BF8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A11CEEF8-FDF9-4B79-92E3-8C88DB74BF8C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -39,6 +45,7 @@ Global
 		{F6D73496-8660-4A4C-B88A-470990897D7E} = {BA69B69C-C802-4077-B693-8845A154AD13}
 		{1575B814-EAF9-4DD2-9AB4-E8ECFDD58B2C} = {BA69B69C-C802-4077-B693-8845A154AD13}
 		{1A5C78F0-D0E1-4146-A035-F13EF8BE542A} = {D0EC41DE-8A29-463D-8915-CB623E02CDA0}
+		{A11CEEF8-FDF9-4B79-92E3-8C88DB74BF8C} = {D0EC41DE-8A29-463D-8915-CB623E02CDA0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F8F6C51C-3BD1-44B3-803A-176BCC69458E}
